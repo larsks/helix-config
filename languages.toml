@@ -30,6 +30,7 @@ name = "markdown"
 auto-format = true
 file-types = ["md", "markdown", {glob="COMMIT_EDITMSG"}]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
+soft-wrap.enable = true
 
 [language-server.vscode-json-language-server]
 command = "vscode-json-languageserver"
