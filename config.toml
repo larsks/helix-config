@@ -6,6 +6,18 @@ cursorline = true
 cursorcolumn = true
 bufferline = "always"
 
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+character = "┊"
+render = true
+
 [editor.whitespace.render]
 space = "all"
 tab = "all"
