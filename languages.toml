@@ -1,0 +1,44 @@
+[[language]]
+name = "toml"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "toml"] }
+
+[[language]]
+name = "json"
+auto-format = true
+formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
+
+[[language]]
+name = "jsonnet"
+file-types = ["jsonnet", "libsonnet"]
+auto-format = true
+formatter = { command = "jsonnetfmt", args = ["-"] }
+
+[[language]]
+name = "yaml"
+file-types = ["yml", "yaml"]
+auto-format = true
+formatter = { command = "dprint", args = ["fmt", "--stdin", "yaml"] }
+
+[[language]]
+name = "python"
+auto-format = true
+roots = ["pyproject.toml", "setup.py", "Poetry.lock", "setup.cfg", "Pipfile", "requirements.txt"]
+language-servers = ["ruff", "basedpyright"]
+
+[[language]]
+name = "markdown"
+auto-format = true
+file-types = ["md", "markdown", {glob="COMMIT_EDITMSG"}]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
+
+[language-server.vscode-json-language-server]
+command = "vscode-json-languageserver"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.taplo.config]
+# Workaround for nonsense of being nonfunctional outside git directories
+# (https://github.com/helix-editor/helix/issues/3897#issuecomment-2361674437)
+root_dir = [".git", "*.toml"]
