@@ -50,6 +50,7 @@ g = { a = "code_action" } # Maps `ga` to show possible code actions
 C-r = ":config-reload"
 "H" = ":buffer-previous"
 "L" = ":buffer-next"
+"ret" = "move_visual_line_down"
 C-o = { "c"=":open ~/.config/helix/config.toml", "l"=":open ~/.config/helix/languages.toml" }
 
 # Use system clipboard
