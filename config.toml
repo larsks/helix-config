@@ -57,3 +57,6 @@ C-o = { "c"=":open ~/.config/helix/config.toml", "l"=":open ~/.config/helix/lang
 p = "paste_clipboard_before"
 y = "yank_main_selection_to_clipboard"
 
+[keys.select]
+"G" = "goto_last_line"
+
