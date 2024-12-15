@@ -15,7 +15,7 @@ formatter = { command = "jsonnetfmt", args = ["-"] }
 
 [[language]]
 name = "yaml"
-file-types = ["yml", "yaml"]
+file-types = ["yml", "yaml", {glob = "kubeconfig"}]
 auto-format = true
 formatter = { command = "dprint", args = ["fmt", "--stdin", "yaml"] }
 
@@ -28,9 +28,27 @@ language-servers = ["ruff", "basedpyright"]
 [[language]]
 name = "markdown"
 auto-format = true
-file-types = ["md", "markdown", {glob="COMMIT_EDITMSG"}]
+language-servers = ["vale", "marksman"]
+file-types = ["md", "txt", "markdown", {glob="COMMIT_EDITMSG"} ]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 soft-wrap.enable = true
+
+[[language]]
+name = "javascript"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "js"] }
+
+[[language]]
+name = "html"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "html"] }
+
+[[language]]
+name = "html"
+file-types = ["html", "xml"]
+
+[[language]]
+name = "zonefile"
+file-types = ["zone"]
+scope = "source.zone"
 
 [language-server.vscode-json-language-server]
 command = "vscode-json-languageserver"
@@ -43,3 +61,6 @@ args = ["server"]
 # Workaround for nonsense of being nonfunctional outside git directories
 # (https://github.com/helix-editor/helix/issues/3897#issuecomment-2361674437)
 root_dir = [".git", "*.toml"]
+
+[language-server.vale]
+command = "vale-ls"
